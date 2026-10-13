@@ -1,0 +1,17 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+packages/
+*.user
+*.suo
+*.userprefs
+*.rsuser
+*.bak
+
+# Claves locales: nunca se suben
+Secretos.cs
+appsettings.Local.json
+
+# Archivo de mapa de 284 MB que la app no usa
+mexico.json

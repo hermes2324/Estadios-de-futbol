@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Estadios_de_futbol.Views.Mapa"
+             Title="Mapa"
+             BackgroundColor="#0D1117">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Mapa ocupa toda la pantalla menos el panel inferior -->
+        <Grid Grid.Row="1" x:Name="MapContainer"/>
+
+        <!-- PANEL NORMAL (ver eventos) -->
+        <Frame x:Name="PanelNormal"
+               Grid.Row="2"
+               BackgroundColor="#161B22" BorderColor="#333333"
+               CornerRadius="0" Padding="20,15"
+               IsVisible="True">
+            <VerticalStackLayout Spacing="10">
+
+                <Label x:Name="LblInfoEvento"
+                       Text="👆 Toca un pin para ver los eventos"
+                       TextColor="#8B949E" FontSize="13"
+                       HorizontalOptions="Center"/>
+
+                <ScrollView x:Name="ScrollEventos"
+                            IsVisible="False"
+                            MaximumHeightRequest="280">
+                    <VerticalStackLayout x:Name="StackEventos" Spacing="10"/>
+                </ScrollView>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- PANEL AGREGAR ESTADIO -->
+        <Frame x:Name="PanelAgregar"
+               Grid.Row="2"
+               BackgroundColor="#161B22" BorderColor="#333333"
+               CornerRadius="0" Padding="20,15"
+               IsVisible="False">
+            <VerticalStackLayout Spacing="12">
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Latitud" TextColor="Gray" FontSize="11"/>
+                        <Label x:Name="LblLat" Text="—"
+                               TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Longitud" TextColor="Gray" FontSize="11"/>
+                        <Label x:Name="LblLon" Text="—"
+                               TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <Label Text="Nombre del estadio" TextColor="White" FontSize="14"/>
+                <Entry x:Name="EntNombre"
+                       Placeholder="Ej. Estadio Azteca"
+                       TextColor="White" PlaceholderColor="Gray"
+                       BackgroundColor="#1E1E1E"/>
+
+                <Button x:Name="BtnGuardar"
+                        Text="GUARDAR ESTADIO"
+                        Clicked="OnGuardarClicked"
+                        BackgroundColor="#F5C842"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="52"
+                        CornerRadius="26"
+                        IsEnabled="False"/>
+
+                <Label x:Name="LblHint"
+                       Text="📌 Toca el mapa para colocar el pin"
+                       TextColor="#555555" FontSize="12"
+                       HorizontalOptions="Center"/>
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </Grid>
+</ContentPage>

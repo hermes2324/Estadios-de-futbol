@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Estadios_de_futbol.Views.RegistroEventos"
+             Title="Registro de Evento"
+             BackgroundColor="#121212">
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+            <Label Text="🏟 Registro de Juego" 
+                   TextColor="#F5C842" 
+                   FontAttributes="Bold" 
+                   FontSize="28" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Frame BackgroundColor="#1E1E1E" BorderColor="#333333" CornerRadius="10" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Información del Encuentro" TextColor="#F5C842" FontAttributes="Bold" FontSize="16"/>
+                    
+                    <Label Text="Equipo Local" TextColor="White" FontSize="14"/>
+                    <Entry x:Name="LocalEntry" Placeholder="Nombre equipo local" TextColor="White" PlaceholderColor="Gray"/>
+                    
+                    <Label Text="VS" TextColor="#F5C842" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    
+                    <Label Text="Equipo Visitante" TextColor="White" FontSize="14"/>
+                    <Entry x:Name="VisitanteEntry" Placeholder="Nombre equipo visitante" TextColor="White" PlaceholderColor="Gray"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#1E1E1E" BorderColor="#333333" CornerRadius="10" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Detalles de Venta" TextColor="#F5C842" FontAttributes="Bold" FontSize="16"/>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="No. Boletos" TextColor="White" FontSize="14"/>
+                            <Entry x:Name="BoletoEntry" Placeholder="0" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray"/>
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="Precio ($)" TextColor="White" FontSize="14"/>
+                            <Entry x:Name="PrecioEntry" Placeholder="0.00" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#1E1E1E" BorderColor="#333333" CornerRadius="10" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Fecha, Hora y Lugar" TextColor="#F5C842" FontAttributes="Bold" FontSize="16"/>
+
+                    <Label Text="Fecha" TextColor="White" FontSize="14"/>
+                    <DatePicker x:Name="FechaPicker" TextColor="White"/>
+                    
+                    <Label Text="Hora" TextColor="White" FontSize="14" Margin="0,5,0,0"/>
+                    <TimePicker x:Name="HoraPicker" Time="12:00:00" Format="HH:mm" TextColor="White"/>
+
+                    <Label Text="Estadio Anfitrión" TextColor="White" FontSize="14" Margin="0,5,0,0"/>
+                    <Picker x:Name="sfComboBox" Title="Seleccione un estadio" TextColor="White" TitleColor="Gray" SelectedIndexChanged="onEstadioSeleccion"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="GUARDAR EVENTO"
+                    Clicked="Guardar_Clicked"
+                    BackgroundColor="#F5C842"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="60"
+                    CornerRadius="30"
+                    Margin="0,10,0,20"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
